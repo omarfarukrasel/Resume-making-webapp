@@ -32,9 +32,11 @@
             <div id="header">
                 Make your Resume here!
             </div>
-	<div class="infoBox">
-		<h2 class="form-title">Enter your Details Below</h2>
-        <form action="resume.php" method="POST" onsubmit="return validate();" class="resume-form">
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-10 infoBox">
+                <h2 class="form-title text-center mb-4">Enter your Details Below</h2>
+                <form action="resume.php" method="POST" onsubmit="return validate();" class="resume-form">
             <div id="form-errors"></div>
             <!-- Progress bar -->
             <div class="progress mb-3">
@@ -112,19 +114,31 @@
                         <label>University Name:</label>
                         <input type="text" name="university" class="form-control" required placeholder="Enter your university name">
                     </div>
+                    <div class="form-group">
+                        <label>Department:</label>
+                        <select name="department" class="form-control" required>
+                            <option value="">Select Department</option>
+                            <option value="CSE">Computer Science & Engineering</option>
+                            <option value="EEE">Electrical & Electronic Engineering</option>
+                            <option value="ME">Mechanical Engineering</option>
+                            <option value="CE">Civil Engineering</option>
+                            <option value="IT">Information Technology</option>
+                            <option value="BBA">Business Administration</option>
+                            <option value="ECE">Electronics & Communication</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>Year of Start:</label>
-                            <input type="month" id="graddate" name="graddate" class="form-control" required>
+                            <label>Year of Graduation:</label>
+                            <input type="text" id="gradenddate" name="gradenddate" class="form-control" required 
+                                pattern="[0-9]{4}" placeholder="Enter year (e.g., 2024)" 
+                                title="Please enter a valid graduation year">
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Year of Completion:</label>
-                            <input type="month" id="gradenddate" name="gradenddate" class="form-control" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>CGPA:</label>
-                        <input type="number" name="gradcgpa" step="0.01" class="form-control" min="0" max="10" placeholder="Enter final CGPA" required>
+                            <label>CGPA:</label>
+                            <input type="number" name="gradcgpa" step="0.01" class="form-control" min="0" max="10" 
+                                placeholder="Enter final CGPA" required>
                     </div>
                 </div>
             </section>
@@ -192,30 +206,108 @@
                     </div>
                 </div>
             </section>
-        8. Enter Projects or Research papers below:<br><br>
-        &emsp; 8.1 Final year project:
-        &emsp;<input type="text" name="beproj" style="margin-left:30px;"><br>
-        &emsp;8.2 External projects:
-        <input type="text" name="extproj1" placeholder="External project 1" style="margin-left:30px;">
-        <input type="text" name="extproj2" placeholder="External project 2" style="margin-left:30px;">
-        &emsp;8.3 Mini projects:
-        <input type="text" name="miniproj1" placeholder="Mini project 1" style="margin-left:30px;">
-        <input type="text" name="miniproj2" placeholder="Mini project 2" style="margin-left:30px;">
-        <input type="text" name="miniproj3" placeholder="Mini project 3" style="margin-left:30px;">
-        9. Enter position of responsibility: <br><br>
-            <input type="text"  name="responsibility1" placeholder="position of responsibility 1" class="certis">
-            <input type="text"  name="responsibility2" placeholder="position of responsibility 2" class="certis"><br>
-            10. Enter Extra-curricular achievements:
-            <input type="text" name="achievement1" placeholder="Enter 1st achievement " class="certis">
-            <input type="text" name="achievement2" placeholder="Enter 2nd achievement " class="certis">
-            <input type="text" name="achievement3" placeholder="Enter 3rd achievement " class="certis">
-            11. Enter Programming languages or other skills that you know: 
-            <input type="text" name="know" placeholder="Programming languages"><br>
-            12. Enter any additional information about you: 
-            <input type="text" name="additonalinfo" ><br> 
-            13. Enter your Hobbies: (ex drawing,dancing etc.)
-            <input type="text" name="hobbies"><br>
-            <div class="form-actions">
+            <!-- Projects Section -->
+            <section class="form-section" id="projects">
+                <h4 class="section-title mt-4">Projects & Research</h4>
+                <div class="projects-details">
+                    <div class="form-group">
+                        <label>Final Year Project:</label>
+                        <input type="text" name="beproj" class="form-control" placeholder="Enter your final year project title and brief description">
+                    </div>
+                    
+                    <div class="subsection-title">External Projects</div>
+                    <div class="form-group">
+                        <input type="text" name="extproj1" class="form-control" placeholder="Enter external project 1 details">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="extproj2" class="form-control" placeholder="Enter external project 2 details">
+                    </div>
+                    
+                    <div class="subsection-title">Mini Projects</div>
+                    <div class="form-group">
+                        <input type="text" name="miniproj1" class="form-control" placeholder="Enter mini project 1 details">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="miniproj2" class="form-control" placeholder="Enter mini project 2 details">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="miniproj3" class="form-control" placeholder="Enter mini project 3 details">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Responsibilities Section -->
+            <section class="form-section" id="responsibilities">
+                <h4 class="section-title mt-4">Positions of Responsibility</h4>
+                <div class="responsibilities-details">
+                    <div class="form-group">
+                        <label>Position 1:</label>
+                        <input type="text" name="responsibility1" class="form-control" placeholder="Enter position and organization">
+                    </div>
+                    <div class="form-group">
+                        <label>Position 2:</label>
+                        <input type="text" name="responsibility2" class="form-control" placeholder="Enter position and organization">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements Section -->
+            <section class="form-section" id="achievements">
+                <h4 class="section-title mt-4">Extra-curricular Achievements</h4>
+                <div class="achievements-details">
+                    <div class="form-group">
+                        <label>Achievement 1:</label>
+                        <input type="text" name="achievement1" class="form-control" placeholder="Enter your achievement and year">
+                    </div>
+                    <div class="form-group">
+                        <label>Achievement 2:</label>
+                        <input type="text" name="achievement2" class="form-control" placeholder="Enter your achievement and year">
+                    </div>
+                    <div class="form-group">
+                        <label>Achievement 3:</label>
+                        <input type="text" name="achievement3" class="form-control" placeholder="Enter your achievement and year">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="form-section" id="skills">
+                <h4 class="section-title mt-4">Skills</h4>
+                <div class="skills-details">
+                    <div class="form-group">
+                        <label>Technical Skills:</label>
+                        <textarea name="know" class="form-control" rows="3" 
+                            placeholder="Enter your programming languages and technical skills (e.g., Java, Python, SQL, Web Development)"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Additional Information Section -->
+            <section class="form-section" id="additional">
+                <h4 class="section-title mt-4">Additional Information</h4>
+                <div class="additional-details">
+                    <div class="form-group">
+                        <label>Additional Details:</label>
+                        <textarea name="additonalinfo" class="form-control" rows="3" 
+                            placeholder="Enter any additional information you'd like to include"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hobbies Section -->
+            <section class="form-section" id="hobbies">
+                <h4 class="section-title mt-4">Hobbies & Interests</h4>
+                <div class="hobbies-details">
+                    <div class="form-group">
+                        <label>Hobbies:</label>
+                        <textarea name="hobbies" class="form-control" rows="2" 
+                            placeholder="Enter your hobbies and interests (e.g., drawing, dancing, photography)"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Form Actions -->
+            <div class="form-actions text-center mt-4">
                 <button type="submit" class="btn btn-primary" name="submit">Generate Resume</button>
                 <button type="button" class="btn btn-info" onclick="previewResume()">Preview Resume</button>
                 <button type="reset" class="btn btn-secondary" name="reset">Clear Form</button>
