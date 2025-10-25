@@ -1,0 +1,102 @@
+/* Enhanced form section styles */
+.resume-form {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Form navigation */
+.form-nav {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+    z-index: 1000;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+}
+
+.nav-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: #f8f9fa;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    background: #e9ecef;
+}
+
+/* Form sections */
+.form-section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.section-title {
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #007bff;
+}
+
+/* Form actions */
+.form-actions {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+/* Error messages */
+#form-errors {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Progress bar */
+.progress {
+    height: 0.5rem;
+}
+
+.progress-bar {
+    transition: width 0.3s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .resume-form {
+        padding: 1rem;
+    }
+
+    .form-nav {
+        padding: 0.5rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}

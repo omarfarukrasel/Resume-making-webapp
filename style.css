@@ -1,14 +1,36 @@
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e6e6e6;
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+/* Header styles */
+#header {
+    background-color: orange;
+    text-align: center;
+    font-size: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: auto;
+    height: 20%;
+    padding: 15px;
+}
+
+/* Container styles */
 #container {
     width: 100%;
     height: auto;
- }
- 
- #container img {
+}
+
+#container img {
     width: 100%;
- }
- @media only screen  and (max-width: 410px) {
-    table{
-       font-size:10px;
-    } 
-	
- }
+}
+
+/* Table responsiveness */
+@media only screen and (max-width: 410px) {
+    table {
+        font-size: 10px;
+    }
+}

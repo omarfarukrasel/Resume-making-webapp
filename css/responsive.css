@@ -1,0 +1,63 @@
+/* Mobile Styles */
+@media only screen and (max-width: 420px) {
+    .infoBox {
+        position: relative;
+        margin-bottom: 50px;
+        width: auto;
+        height: 80%;
+        padding: 40px;
+        font-size: 14px;
+        font-family: 'Times New Roman', Times, serif;
+        box-sizing: border-box;
+        background-color: white;
+    }
+
+    .infoBox input[type="submit"],
+    .infoBox input[type="Reset"] {
+        font-size: 20px;
+    }
+
+    #academicbg1 {
+        display: block;
+    }
+
+    #academicbg {
+        display: none;
+    }
+}
+
+/* Tablet and Desktop Styles */
+@media (max-width: 768px) {
+    li {
+        margin-left: 0;
+        margin-bottom: 1vh;
+    }
+    
+    .sozial {
+        margin-bottom: 1vh;
+    }
+}
+
+/* Form Responsiveness */
+@media (max-width: 576px) {
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .section-title {
+        font-size: 30px;
+    }
+
+    .infoBox {
+        padding: 20px;
+    }
+}
+
+/* Table Responsiveness */
+@media (max-width: 480px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

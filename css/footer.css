@@ -1,0 +1,82 @@
+/* Footer styles */
+footer {
+    padding-top: 5vh;
+    padding-bottom: 2vh;
+    background-color: #f8f9fa;
+    margin-top: 2rem;
+}
+
+/* Social media section */
+.sozial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sozial ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sozial li {
+    list-style-type: none;
+    margin-left: 1vw;
+}
+
+.sozial li:first-child {
+    margin: 0;
+}
+
+/* Social media icons */
+.logo {
+    height: 8vh;
+    width: 8vh;
+    border-radius: 25px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Copyright and impressum sections */
+.copyright, .impressum {
+    text-align: center;
+    padding: 1rem;
+}
+
+.copyright p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.impressum h3 {
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .sozial {
+        flex-direction: column;
+        margin-bottom: 1vh;
+    }
+
+    .sozial li {
+        margin-left: 0;
+        margin-bottom: 1vh;
+    }
+
+    .sozial ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo {
+        height: 6vh;
+        width: 6vh;
+    }
+}

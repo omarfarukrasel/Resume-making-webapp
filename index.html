@@ -19,316 +19,179 @@
 <script>
 	
 </script>
-<style>
-body
-{
-	
-	margin:0;
-	padding:0;
-	background-color:#e6e6e6;
-	background-size:cover;
-	font-family: sans-serif; 
-}
-h2
-{
-	margin:0;
-	padding:0 0 20px;
-	color:#1E90FF;
-	text-align:center;
-} 
-::placeholder {
-  color: black;
-  opacity: 1; /* Firefox */
-  font-family:new time roman;
-}
-.infoBox p
-{
-	padding:0;
-	margin:0;
-	font-weight:bold;
-	color:#fff;
-	
-} 
-.infoBox input
-{
-	width:100%;
-	margin-bottom: 20px; 
-}
-.infoBox input[type="password"],input[type="text"],input[type="tel"]
-{
-	border: none;
-	border-bottom: 1px solid black;
-	background: transparent;
-	outline:none;
-	height:40px;
-	color:black;
-	font-size: 16px;
-}
-
-.chk{
-	margin-left:0px;
-}
-.infoBox input[type="submit"],input[type="Reset"]
-{
-	border:none;
-	outline:none;
-	height: 40px;
-	color:#fff;
-	font-size:16px;
-	background: orangered;
-	cursor:pointer;
-    border-radius:10px;
-    font-size:25px;
-    font-family:cortana;
-
-}
-
-.infoBox input[type="submit"]:hover,input[type="reset"]:hover
-{
-	background: #efed40;
-	color: #262626;
-}
-.infoBox a
-{
-	color: #fff;
-	font-size:14px;
-	font-weight:bold;
-} 
-.infoBox
-{
-	position:relative;
-	width:100%;
-	height:100%;
-    padding:40px 40px;
-    font-size:17px;
-    font-family:'Times New Roman', Times, serif;
-	box-sizing: border-box;
-	background-color:white;
-}
-.infoBox input[type="email"]
-{
-	border: none;
-	border-bottom: 1px solid black;
-	background: transparent;
-	outline:none;
-	height:40px;
-	color:black;
-	font-size: 16px;
-	
-	
-}
-#academicbg,#academicbg1{
-    width:300px;
-    font-size:14px;
-    text-align:center;
-    border-radius:20px;
-}
-#academicbg1{
-
-display:none;
-}
-@media only screen  and (max-width: 420px) { 
-	.infoBox
-{
-	position:relative;
-    margin-bottom:50px;
-	width:auto;
-	height:80%;
-    padding-right:100px;
-    padding:40px 40px;
-    font-size:14px;
-    font-family:'Times New Roman', Times, serif;
-	box-sizing: border-box;
-	background-color:white;
-}
-.infoBox input[type="submit"],input[type="Reset"]
-{
-font-size:20px;
-}
-#academicbg1{
-
-    display:block;
-}
-#academicbg{
-
-display:none;
-}
-}
-::placeholder {
-    font-size:18px;
-    color:gray;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.certis{
-    width:100%;
-    height:25px;
-    font-size:15px;
-    border:none;
-    border-bottom: 2px solid black;
-}
-li
-{
-  list-style-type: none;
-  margin-left: 1vw;
-}
-
-li:first-child
-{
-  margin:0;
-}
-
-footer
-{
-  padding-top: 5vh;
-  padding-bottom: 2vh;
-}
-
-.content
-{
-  height: 50vh;
-  background-color: lightgray;
-}
-
-.container
-{
-  background-color: beige;
-}
-
-.copyright,  .impressum
-{
-  text-align: center;
-}
-
-.logo
-{
-  height: 8vh;
-}
-
-@media (max-width: 768px) 
-{
-  li
-  {
-    margin-left: 0;
-    margin-bottom: 1vh;
-  }
-  
-  .sozial
-  {
-    margin-bottom: 1vh;
-  }
-}
-</style>
+        <!-- CSS Files -->
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/form.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/education.css">
+        <link rel="stylesheet" href="css/degree.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/enhanced-form.css">
 	</head>
 	<body>
-            <div style='background-color:orange;text-align:center;font-size:50px;font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;width:auto;height:20%;padding:15px;' id="header">
-            Make your Resume here!
+            <div id="header">
+                Make your Resume here!
             </div>
 	<div class="infoBox">
-		<h2 style="font-family:Times;font-size:40px;background: -webkit-linear-gradient(black,blue);-webkit-background-clip: text;-webkit-text-fill-color: transparent;">Enter your Details Below</h2>
-        <form action="resume.php" method="POST" onsubmit="return validate();" style="font-size:20px;">
-            College Name: <select name="college"> 
-<?php echo $option1; ?>
-</select><br>
-            Branch: <select name="branch"> 
-<?php echo $option; ?>
-</select><br>
-            University: <input type='text' name="university" required><br>
-            1. Full Name: <input type='text' name="fullname" required><br>
-            <table style="float:left;padding:5px;font-size:20px;">
-                <tr>
-                    <td>2.Gender</td>
-                    <td style="padding-top:13px;">&nbsp;&nbsp;<input type="radio" name="gender" value="Male" style="width:15px;height:15px;"></td>
-                    <td>&nbsp;Male</td>
-                    <td style="padding-top:13px;">&nbsp;&nbsp;<input type="radio" name="gender" value="Female" style="width:15px;height:15px;"></td>
-                    <td>&nbsp;Female</td>
-                </tr>
-            </table><br><br><br>
-            3. E-mail Address : <input type="email" name='mailid'><br>
-            4. Mobile No.: <input type="tel" name="mobno"><br>
-            5. What is your Career Objective ?<br><br>
-            <textarea name="objective" rows="3" style="resize:none;width:100%;font-size:20px;font-family:inherit;"></textarea><br><br>
-            6. Academic Background:<br><br>
-            <table cellpadding=10 border=5 cellspacing=5 id="academicbg">
-                <tr>
-            <th align=left colspan="2">
-SSC Details
-            </th>
-                <td>Year:<br> <input type="month" id="sscdate" name="sscdate" style="width:150px;border-radius:10px;height:30px;margin-top:10px;">
-                <td>Percentage(%): <input type="number" name='sscpercent' step="any" placeholder="%" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/>
-            </tr>
-            <tr>
-                    <th align=left colspan="2">
-        HSC Details
-                    </th>
-                        <td>Year: <input type="month" id="hscdate" name="hscdate" style="width:150px;border-radius:10px;height:30px;margin-top:10px;">
-                        <td>Percentage(%): <input type="number" name="hscpercent" step="any" placeholder="%" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"></td>
-                    </tr>
-                    <tr>
-                        <th align=left colspan=2>F.E. <br> Year: <input type="month" id="fedate" name="fedate" style="width:150px;border-radius:10px;height:30px;margin-top:10px;"></th>
-                        <td>Sem I pointer: <input type="number" name="sem1pointer" step="any" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                        <td>Sem II pointer: <input type="number" name="sem2pointer" step="any" value="0" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                    </tr>
-                    <tr>
-                            <th align=left colspan=2>S.E. <br> Year: <input type="month" id="sedate" name="sedate" style="width:150px;border-radius:10px;height:30px;margin-top:10px;"></th>
-                            <td>Sem III pointer<input type="number" name="sem3pointer" step="any" value="0" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                            <td>Sem IV pointer: <input type="number" name="sem4pointer" step="any" value="0" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                        </tr>
-                        <tr>
-                                <th align=left colspan=2>T.E. <br>Year: <input type="month" id="tedate" name="tedate" style="width:150px;border-radius:10px;height:30px;margin-top:10px;"></td></th>
-                                <td>SEM V pointer: <input type="number" name="sem5pointer" step="any" value="0" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                                <td>SEM VI pointer: <input type="number" name="sem6pointer" step="any" value="0" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                            </tr>
-                            <tr>
-                                    <th align=left colspan=2>B.E. <br>Year: <input type="month" id="bedate" name="bedate" style="width:150px;border-radius:10px;height:30px;margin-top:10px;"> </th>
-                                    <td>SEM VII pointer: <input type="number" name="sem7pointer" step="any" value="0" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                                    <td>SEM VIII pointer: <input type="number" name="sem8pointer" step="any" value='0' style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                                </tr>
-                                
-            </table>
-            <table border=5 cellpadding=5 cellspacing=5 id="academicbg1">
-                <tr>
-            <th align=left colspan="2">
-SSC Details
-            </th>
-                <td>Year:<br> <input type="month" id="sscdate" name="sscdate" style="width:50px;border-radius:10px;height:30px;margin-top:10px;">
-                <td>Percentage(%): <input type="number" name='sscpercent' step="any" placeholder="%" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/>
-            </tr>
-            <tr>
-                    <th align=left colspan="2">
-        HSC Details
-                    </th>
-                        <td>Year: <br><input type="month" id="hscdate" name="hscdate" style="width:50px;border-radius:10px;height:30px;margin-top:10px;">
-                        <td>Percentage(%): <input type="number" name="hscpercent" step="any" placeholder="%" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"></td>
-                    </tr>
-                    <tr>
-                        <th align=left colspan=2>F.E. <br> Year: <input type="month" id="fedate" name="fedate" style="width:50px;border-radius:10px;height:30px;margin-top:10px;"></th>
-                        <td>Sem I pointer: <input type="number" name="sem1pointer" step="any" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                        <td>Sem II pointer: <input type="number" name="sem2pointer" step="any" value="0" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                    </tr>
-                    <tr>
-                            <th align=left colspan=2>S.E. <br> Year: <input type="month" id="sedate" name="sedate" style="width:50px;border-radius:10px;height:30px;margin-top:10px;"></th>
-                            <td>Sem III pointer<input type="number" name="sem3pointer" step="any" value="0" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                            <td>Sem IV pointer: <input type="number" name="sem4pointer" step="any" value="0" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                        </tr>
-                        <tr>
-                                <th align=left colspan=2>T.E. <br>Year: <input type="month" id="tedate" name="tedate" style="width:50px;border-radius:10px;height:30px;margin-top:10px;"></td></th>
-                                <td>SEM V pointer: <input type="number" name="sem5pointer" step="any" value="0" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                                <td>SEM VI pointer: <input type="number" name="sem6pointer" step="any" value="0" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                            </tr>
-                            <tr>
-                                    <th align=left colspan=2>B.E. <br>Year: <input type="month" id="bedate" name="bedate" style="width:50px;border-radius:10px;height:30px;margin-top:10px;"> </th>
-                                    <td>SEM VII pointer: <input type="number" name="sem7pointer" step="any" value="0" style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                                    <td>SEM VIII pointer: <input type="number" name="sem8pointer" step="any" value='0' style="width:60px;border-radius:10px;height:30px;margin-top:10px;"/></td>
-                                </tr>
-                                
-            </table>
-            <br>
-            7. Enter your certifications below:<br><br>
-            <input type="text" rows="1"  name="certification1" placeholder="Certification 1" class="certis">
-            <input type="text" rows="1"  name="certification2" placeholder="Certification 2" class="certis">
-            <input type="text" rows="1"  name="certification3" placeholder="Certification 3" class="certis">
-            <input type="text" rows="1"  name="certification4" placeholder="Certification 4" class="certis">
-            <input type="text" rows="1"  name="certification5" placeholder="Certification 5" class="certis"><br>
+		<h2 class="form-title">Enter your Details Below</h2>
+        <form action="resume.php" method="POST" onsubmit="return validate();" class="resume-form">
+            <div id="form-errors"></div>
+            <!-- Progress bar -->
+            <div class="progress mb-3">
+                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <!-- Education -->
+            <section class="form-section" id="education">
+                <h4 class="section-title mt-4">Education</h4>
+                <!-- School Information -->
+                <div class="education-subsection">
+                    <h5 class="subsection-title">SSC</h5>
+                    <div class="form-group">
+                        <label>School Name:</label>
+                        <input type="text" name="ssc_school" class="form-control" required placeholder="Enter your school name">
+                    </div>
+                    <div class="form-group">
+                        <label>Board:</label>
+                        <input type="text" name="ssc_board" class="form-control" required placeholder="Enter your school board">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Passing Year:</label>
+                            <input type="text" id="sscdate" name="sscdate" class="form-control" required placeholder="Enter year (e.g., 2020)" 
+                                pattern="[0-9]{4}" title="Please enter a valid year (e.g., 2020)">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>GPA:</label>
+                            <input type="text" name="sscpercent" pattern="[0-9]*\.?[0-9]+" class="form-control" required 
+                                placeholder="Enter GPA (e.g., 4.50)" title="Please enter a valid GPA">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HSC Information -->
+                <div class="education-subsection">
+                    <h5 class="subsection-title">HSC</h5>
+                    <div class="form-group">
+                        <label>College Name:</label>
+                        <input type="text" name="hsc_college" class="form-control" required placeholder="Enter your college name">
+                    </div>
+                    <div class="form-group">
+                        <label>Board:</label>
+                        <input type="text" name="hsc_board" class="form-control" required placeholder="Enter your board">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Passing Year:</label>
+                            <input type="text" id="hscdate" name="hscdate" class="form-control" required placeholder="Enter year (e.g., 2022)" 
+                                pattern="[0-9]{4}" title="Please enter a valid year (e.g., 2022)">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>GPA:</label>
+                            <input type="text" name="hscpercent" pattern="[0-9]*\.?[0-9]+" class="form-control" required 
+                                placeholder="Enter GPA (e.g., 4.75)" title="Please enter a valid GPA">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graduation Details -->
+                <div class="education-subsection">
+                    <h5 class="subsection-title">Graduation Details</h5>
+                    <div class="form-group">
+                        <label>Degree Type:</label>
+                        <select name="degree_type" class="form-control" required>
+                            <option value="">Select Degree</option>
+                            <option value="BE">Bachelor of Engineering (BE)</option>
+                            <option value="BTech">Bachelor of Technology (BTech)</option>
+                            <option value="BSc">Bachelor of Science (BSc)</option>
+                            <option value="BA">Bachelor of Arts (BA)</option>
+                            <option value="BBA">Bachelor of Business Administration (BBA)</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>University Name:</label>
+                        <input type="text" name="university" class="form-control" required placeholder="Enter your university name">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Year of Start:</label>
+                            <input type="month" id="graddate" name="graddate" class="form-control" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Year of Completion:</label>
+                            <input type="month" id="gradenddate" name="gradenddate" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>CGPA:</label>
+                        <input type="number" name="gradcgpa" step="0.01" class="form-control" min="0" max="10" placeholder="Enter final CGPA" required>
+                    </div>
+                </div>
+            </section>
+            <!-- Personal Information -->
+            <section class="form-section" id="personal-info">
+                <h4 class="section-title mt-4">Personal Information</h4>
+                <div class="personal-details">
+                    <div class="form-group">
+                        <label>Full Name:</label>
+                        <input type="text" name="fullname" class="form-control" required placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="male" name="gender" value="Male" class="custom-control-input" required>
+                            <label class="custom-control-label" for="male">Male</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="female" name="gender" value="Female" class="custom-control-input">
+                            <label class="custom-control-label" for="female">Female</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address:</label>
+                        <input type="email" name="mailid" class="form-control" required placeholder="Enter your email address">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mobile Number:</label>
+                        <input type="tel" name="mobno" class="form-control" required placeholder="Enter your mobile number" pattern="[0-9]{11}" title="Please enter a valid 11-digit mobile number">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Career Objective:</label>
+                        <textarea name="objective" rows="4" class="form-control" placeholder="Write your career objective here"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications -->
+            <section class="form-section" id="certifications">
+                <h4 class="section-title mt-4">Certifications</h4>
+                <div class="certifications-details">
+                    <div class="form-group">
+                        <label>Certification 1:</label>
+                        <input type="text" name="certification1" class="form-control" placeholder="Enter certification name and authority">
+                    </div>
+                    <div class="form-group">
+                        <label>Certification 2:</label>
+                        <input type="text" name="certification2" class="form-control" placeholder="Enter certification name and authority">
+                    </div>
+                    <div class="form-group">
+                        <label>Certification 3:</label>
+                        <input type="text" name="certification3" class="form-control" placeholder="Enter certification name and authority">
+                    </div>
+                    <div class="form-group">
+                        <label>Certification 4:</label>
+                        <input type="text" name="certification4" class="form-control" placeholder="Enter certification name and authority">
+                    </div>
+                    <div class="form-group">
+                        <label>Certification 5:</label>
+                        <input type="text" name="certification5" class="form-control" placeholder="Enter certification name and authority">
+                    </div>
+                </div>
+            </section>
         8. Enter Projects or Research papers below:<br><br>
         &emsp; 8.1 Final year project:
         &emsp;<input type="text" name="beproj" style="margin-left:30px;"><br>
@@ -352,8 +215,11 @@ SSC Details
             <input type="text" name="additonalinfo" ><br> 
             13. Enter your Hobbies: (ex drawing,dancing etc.)
             <input type="text" name="hobbies"><br>
-            <input type="submit" name='submit'><br>
-            <input type="reset" name="reset">
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" name="submit">Generate Resume</button>
+                <button type="button" class="btn btn-info" onclick="previewResume()">Preview Resume</button>
+                <button type="reset" class="btn btn-secondary" name="reset">Clear Form</button>
+            </div>
         </form>
     </div>
         <footer class="row" style="width:100%;">
