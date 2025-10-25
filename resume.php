@@ -1,70 +1,51 @@
 <?php 
 session_start();
-$fullname = "";
-$email    = "";
-$gender="";
-$mobno="";
-$a=array();
-if(isset($_POST['submit'])){
-        $_SESSION['fullname']=$_POST['fullname'];
-       $_SESSION['gender']=$_POST['gender'];
-        $_SESSION['email']=$_POST['mailid'];
-        $_SESSION['mobno']=$_POST['mobno'];
-        $_SESSION['objective']=$_POST['objective'];
-$_SESSION['sscyear']=$_POST['sscdate'];
-$_SESSION['hscyear']=$_POST['hscdate'];
-$_SESSION['feyear']=$_POST['fedate'];
-$_SESSION['seyear']=$_POST['sedate'];
-$_SESSION['teyear']=$_POST['tedate'];
-$_SESSION['beyear']=$_POST['bedate'];
-$_SESSION['sscpercent']=$_POST['sscpercent'];
-$_SESSION['hscpercent']=$_POST['hscpercent'];
-$_SESSION['sem1']=$_POST['sem1pointer'];
-array_push($a,$_SESSION['sem1']);
-$_SESSION['sem2']=$_POST['sem2pointer'];
-array_push($a,$_SESSION['sem2']);
-$_SESSION['sem3']=$_POST['sem3pointer'];
-array_push($a,$_SESSION['sem3']);
-$_SESSION['sem4']=$_POST['sem4pointer'];
-array_push($a,$_SESSION['sem4']);
-$_SESSION['sem5']=$_POST['sem5pointer'];
-array_push($a,$_SESSION['sem5']);
-$_SESSION['sem6']=$_POST['sem6pointer'];
-array_push($a,$_SESSION['sem6']);
-$_SESSION['sem7']=$_POST['sem7pointer'];
-array_push($a,$_SESSION['sem7']);
-$_SESSION['sem8']=$_POST['sem8pointer'];
-array_push($a,$_SESSION['sem8']);
-$_SESSION['certification1']=$_POST['certification1'];
-$_SESSION['certification2']=$_POST['certification2'];
-$_SESSION['certification3']=$_POST['certification3'];
-$_SESSION['certification4']=$_POST['certification4'];
-$_SESSION['certification5']=$_POST['certification5'];
-$_SESSION['beproj']=$_POST['beproj'];
-$_SESSION['extproj1']=$_POST['extproj1'];
-$_SESSION['extproj2']=$_POST['extproj2'];
-$_SESSION['miniproj1']=$_POST['miniproj1'];
-$_SESSION['miniproj2']=$_POST['miniproj2'];
-$_SESSION['miniproj3']=$_POST['miniproj3'];
-$_SESSION['responsibility1']=$_POST['responsibility1'];
-$_SESSION['responsibility2']=$_POST['responsibility2'];
-$_SESSION['achievement1']=$_POST['achievement1'];
-$_SESSION['achievement2']=$_POST['achievement2'];
-$_SESSION['achievement3']=$_POST['achievement3'];
-$_SESSION['know']=$_POST['know'];
-$_SESSION['additonalinfo']=$_POST['additonalinfo'];
-$_SESSION['hobbies']=$_POST['hobbies'];
-$_SESSION['branch']=$_POST['branch'];
-$_SESSION['college']=$_POST['college'];
-$_SESSION['university']=$_POST['university'];
-$count=0;
-for ($i=0; $i <8; $i++) {
-        if($a[$i]==0) {
-$count+=1;
-        }
+require_once 'config.php';
+
+// Check if user is coming from form submission
+if(!isset($_SESSION['resume_id'])) {
+    header("Location: index.html");
+    exit();
 }
-$sem=8-$count;
-$avg=($_SESSION['sem1']+$_SESSION['sem2']+$_SESSION['sem3']+$_SESSION['sem4']+$_SESSION['sem5']+$_SESSION['sem6']+$_SESSION['sem7']+$_SESSION['sem8'])/$sem;
+
+try {
+    $conn = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_DATABASE, DB_USER, DB_PASSWORD);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    // Get resume data
+    $stmt = $conn->prepare("SELECT * FROM resumes WHERE id = ?");
+    $stmt->execute([$_SESSION['resume_id']]);
+    $resume = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if (!$resume) {
+        throw new Exception("Resume not found");
+    }
+    
+    // Decode JSON data
+    $resume_data = json_decode($resume['resume_data'], true);
+    
+    // Store data in variables for easier access in the template
+    $fullname = $resume['fullname'];
+    $email = $resume['email'];
+    $gender = $resume['gender'];
+    $mobno = $resume['mobile'];
+    $objective = $resume['objective'];
+    
+    // Education details
+    $ssc_year = $resume['ssc_year'];
+    $hsc_year = $resume['hsc_year'];
+    $ssc_percent = $resume['ssc_percent'];
+    $hsc_percent = $resume['hsc_percent'];
+    $university = $resume['bsc_university'];
+    $graduation_year = $resume['bsc_end_date'];
+    $cgpa = $resume['bsc_cgpa'];
+    
+} catch(Exception $e) {
+    error_log("Error: " . $e->getMessage());
+    $_SESSION['error'] = "An error occurred while retrieving your resume. Please try again.";
+    header("Location: index.html");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -149,12 +130,12 @@ document.getElementById('print').style.display="none";
         }
           ?> 
         <td>SEM 5<br><?php 
-        if ($_SESSION['sem5']==0){}
-        echo 'Yet to appear';
-}
-        else
-        echo $_SESSION['sem5'];
-          ?> 
+        if ($_SESSION['sem5']==0) {
+            echo 'Yet to appear';
+        } else {
+            echo $_SESSION['sem5'];
+        }
+        ?> 
         
 </tr>
 <tr>
@@ -167,28 +148,31 @@ document.getElementById('print').style.display="none";
         echo $_SESSION['sem4'];
           ?> 
         <td>SEM 3<br><?php 
-        if ($_SESSION['sem3']==0)
-        echo 'Yet to appear';
-        else
-        echo $_SESSION['sem3'];
-          ?> 
+        if ($_SESSION['sem3']==0) {
+            echo 'Yet to appear';
+        } else {
+            echo $_SESSION['sem3'];
+        }
+        ?> 
         
 </tr>
 <tr>
         <td>F.E
         <td><?php echo $_SESSION['feyear']; ?>
         <td>SEM 2<br><?php 
-        if ($_SESSION['sem2']==0)
-        echo 'Yet to appear';
-        else
-        echo $_SESSION['sem2'];
-          ?> 
+        if ($_SESSION['sem2']==0) {
+            echo 'Yet to appear';
+        } else {
+            echo $_SESSION['sem2'];
+        }
+        ?> 
         <td>SEM 1<br><?php 
-        if ($_SESSION['sem1']==0)
-        echo 'Yet to appear';
-        else
-        echo $_SESSION['sem1'];
-          ?> 
+        if ($_SESSION['sem1']==0) {
+            echo 'Yet to appear';
+        } else {
+            echo $_SESSION['sem1'];
+        }
+        ?> 
         
 </tr>
 <tr>
@@ -237,12 +221,13 @@ document.getElementById('print').style.display="none";
          else
          echo '<script>document.getElementById("li12").style.display="none"</script>';
          ?></p>
-         <li id="li13"><p align="justify"><?php echo $_SESSION['certification5']; ?>
+         <li id="li13"><p align="justify">
          <?php 
-         if ($_SESSION['certification5']!="") 
-         echo $_SESSION['certification5']; 
-         else
-         echo '<script>document.getElementById("li13").style.display="none"</script>';
+         if ($_SESSION['certification5']!="") {
+             echo $_SESSION['certification5'];
+         } else {
+             echo '<script>document.getElementById("li13").style.display="none"</script>';
+         }
          ?>
         </p>
 </ul>
